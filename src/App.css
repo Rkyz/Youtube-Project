@@ -1,0 +1,47 @@
+body{
+  background-color: #0F0F0F;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+body::-webkit-scrollbar{
+  background-color: transparent;
+  }
+
+body::-webkit-scrollbar-thumb{
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 1000px;
+  border: 1px solid rgb(0,0,0);
+}
+body::-webkit-scrollbar-thumb:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.scroll-custom::-webkit-scrollbar{
+  background-color: transparent;
+}
+.scroll-custom::-webkit-scrollbar-thumb{
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 9999px;
+}
+
+/* SCROLLBAR */
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.hidden-scroll::-webkit-scrollbar-thumb{
+  display: none;
+}
+.show-scroll::-webkit-scrollbar-thumb{
+  display: flex;
+}
+
+
+
+.clip-studio{
+  clip-path: polygon(50% 0%, 100% 30%, 100% 75%, 50% 100%, 50% 100%, 0 75%, 0 30%);
+
+}
