@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BsCheck2 } from 'react-icons/bs';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { ApiKey, ApiKey1 } from '../../../Utils/Api';
 
 const OneCard = ({ openToggle }) => {
   const [videos, setVideos] = useState([]);
@@ -43,9 +45,9 @@ const OneCard = ({ openToggle }) => {
 
   const handleGetVideos = async () => {
     try {
-      const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
+      const response = await axios.get('https://www.googleapis.com/youtube/v3/video', {
         params: {
-          key: 'AIzaSyCoabcUZZqQRMEs_z_30t7_WbMKcCyPY8w',
+          key: `${ApiKey1}`,
           regionCode: 'ID',
           chart: 'MostPopular',
           type: 'video',
@@ -53,8 +55,8 @@ const OneCard = ({ openToggle }) => {
           maxResults: 3,
         },
       });
-      // setVideos(response.data.items);
-      setError('API quota limit exceeded. Please try again in one day.');
+      setVideos(response.data.items);
+      // setError('API quota limit exceeded. Please try again in one day.');
     } catch (err) {
       setError('API quota limit exceeded. Please try again in one day.');
     }
@@ -69,8 +71,8 @@ const OneCard = ({ openToggle }) => {
   }, [isConsoleLogged]);
 
   return (
-    <div className={`w-full max-4nm:px-0 max-3nm:px-[30px] bg-transparent py-5 h-full 1nm:pr-[10px] max-1nm:pr-[40px] ${openToggle ? 'pl-[100px]' : 'pl-[260px] max-1nm:pl-[100px]'}`}>
-      <div className='bg-Black w-full h-full grid max-2nm:grid-cols-2 2nm:grid-cols-3 gap-2 max-4nm:grid-cols-1'>
+    <div className={`w-full max-3nm:px-[30px] max-4nm:px-[30px] max-4nm:flex max-4nm:justify-center bg-transparent py-5 h-full 1nm:pr-[10px] max-1nm:pr-[40px] ${openToggle ? 'pl-[100px]' : 'pl-[260px] max-1nm:pl-[100px]'}`}>
+      <div className='bg-Black w-full h-full max-4nm:max-w-[516px] grid max-2nm:grid-cols-2 2nm:grid-cols-3 gap-2 max-4nm:grid-cols-1'>
         {error ? (
           <div className='w-full bg-transparent h-16 flex items-center justify-center text-red-500'>
             {error}
@@ -85,15 +87,17 @@ const OneCard = ({ openToggle }) => {
   );
 };
 
+
+
 const VideoCard = ({ video, formatViewCount, formatRelativeTime }) => {
   const [channelThumbnail, setChannelThumbnail] = useState(null);
 
   useEffect(() => {
     const fetchChannelThumbnail = async () => {
       try {
-        const response = await axios.get('https://www.googleapis.com/youtube/v3/channels', {
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/channel', {
           params: {
-            key: 'AIzaSyCoabcUZZqQRMEs_z_30t7_WbMKcCyPY8w',
+            key: `${ApiKey}`,
             id: video.snippet.channelId,
             part: 'snippet',
           },
@@ -109,9 +113,9 @@ const VideoCard = ({ video, formatViewCount, formatRelativeTime }) => {
   }, [video]);
 
   return (
-    <div className='w-full bg-transparent max-h-[400px] h-[400px] overflow-hidden flex flex-col gap-2 '>
-      <div className='flex items-center justify-center w-full max-h-[240px] bg-black h-[240px] rounded-[15px] overflow-hidden '>
-        <img src={video.snippet.thumbnails.high.url} alt={video.snippet.title} />
+    <Link to={`/watch?v=${video.id}`} className='w-full bg-transparent max-h-[400px] h-[400px] overflow-hidden flex flex-col gap-2 '>
+      <div className='flex items-center justify-center w-full bg-black  rounded-[15px] overflow-hidden '>
+        <img src={video.snippet.thumbnails.high.url} alt={video.snippet.title} className='w-full ' />
       </div>
       <div className='flex justify-center w-full h-[160px] text-white bg-transparent gap-3 '>
         <div className='w-[50px] h-full'>
@@ -122,21 +126,21 @@ const VideoCard = ({ video, formatViewCount, formatRelativeTime }) => {
         <div className='w-full'>
           <h1 className=' font-bold'>{video.snippet.title}</h1>
           <a className='flex items-center gap-2'>
-            <p className='capitalize text-gray-400'>{video.snippet.channelTitle}</p>
+            <p className='capitalize text-gray-400 text-[14px]'>{video.snippet.channelTitle}</p>
             <div className='bg-gray-400 rounded-full p-[2px] flex items-center justify-center'>
               <BsCheck2 className='text-Black text-[10px]' />
             </div>
           </a>
-          <div className='flex gap-[25px] items-center'>
-            <p className='text-gray-400'>{formatViewCount(video.statistics.viewCount)}</p>
+          <div className='flex gap-[25px] text-[14px] items-center'>
+            <p className='text-gray-400 whitespace-nowrap'>{formatViewCount(video.statistics.viewCount)}</p>
             <ul className='list-disc text-gray-400'>
-              <li>{formatRelativeTime(new Date(video.snippet.publishedAt))}</li>
+              <li className='whitespace-nowrap'>{formatRelativeTime(new Date(video.snippet.publishedAt))}</li>
             </ul>
           </div>
         </div>
         <div></div>
       </div>
-    </div>
+    </Link>
   );
 };
 

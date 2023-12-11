@@ -1,12 +1,17 @@
 import { AiFillDislike, AiFillLike } from "react-icons/ai"
 import { BsShareFill } from "react-icons/bs"
 import { MdComment } from "react-icons/md"
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 const Card = () => {
   return (
     <div className="max-h-screen w-full h-screen bg-transparent p-5 flex items-center justify-center">
-      <div className="bg-transparent pb-[40px] max-w-[450px] w-full h-full">
-        <div className="w-full bg-transparent h-full flex">
+      <Swiper
+            slidesPerView={1}
+            direction={'vertical'}
+            >
+        <SwiperSlide className="w-full bg-transparent h-full flex">
             <div className="w-[370px] h-[650px] bg-black rounded-xl overflow-hidden">
             <iframe
               width="100%"   // Set the width to 100% to fill the container
@@ -48,8 +53,8 @@ const Card = () => {
                     <img src="https://yt3.ggpht.com/2X-HjBym6OQmTotwrWe-7ngAkWPeNX1EtN09EdKlTdwH-E4oUaJO6ND7LPU3t7NFCWRIp5TzbQ=s88-c-k-c0x00ffffff-no-rj" alt="" />
                 </div>
             </div>
-        </div>
-        <div className="w-full bg-transparent h-full flex">
+        </SwiperSlide>
+        <SwiperSlide className="w-full bg-transparent h-full flex">
             <div className="w-[370px] h-[650px] bg-black rounded-xl overflow-hidden">
             <iframe
               width="100%"   // Set the width to 100% to fill the container
@@ -91,8 +96,8 @@ const Card = () => {
                     <img src="https://yt3.ggpht.com/2X-HjBym6OQmTotwrWe-7ngAkWPeNX1EtN09EdKlTdwH-E4oUaJO6ND7LPU3t7NFCWRIp5TzbQ=s88-c-k-c0x00ffffff-no-rj" alt="" />
                 </div>
             </div>
-        </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   )
 }

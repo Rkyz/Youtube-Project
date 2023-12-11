@@ -23,16 +23,16 @@ const Sidebar = ({openToggle}) => {
     }
 
     return (
-        <div onMouseEnter={onMouseScrollOpen} onMouseLeave={onMouseScrollOpen} className={`bg-transparent z-50  fixed  text-white max-h-screen overflow-x-scroll max-3nm:w-0  max-1nm:max-w-[80px] 1nm:max-w-[260px] ${scroll ? '1nm:scroll-custom scroll-custom   ':'hidden-scroll'} ${openToggle ? '1nm:max-w-[80px]':''}`}>
+        <div onMouseEnter={onMouseScrollOpen} onMouseLeave={onMouseScrollOpen} className={`bg-transparent z-50  fixed  text-white max-h-screen overflow-visible 1nm:overflow-x-scroll max-3nm:w-0  max-1nm:max-w-[80px] 1nm:max-w-[260px] ${scroll ? '1nm:scroll-custom scroll-custom   ':'hidden-scroll'} ${openToggle ? '1nm:max-w-[80px]':''}`}>
             <div className={`h-screen 1nm:w-[240px] bg-transparent py-[10px] max-1nm:px-[5px] 1nm:px-[10px] ${openToggle ? '':''}`}>
                 <div className=" bg-transparent ">
                     <div
-                        className="flex flex-col gap-[5px] border-b border-white border-opacity-20  py-3">
+                        className="flex flex-col gap-[5px] 1nm:border-b border-white border-opacity-20  py-3">
                         <div
                             className={`1nm:px-[15px] py-[10px] rounded-xl overflow-hidden w-full  ${currentPath === '/'
                                 ? 'xl:bg-[#F1F1F1] xl:bg-opacity-10'
                                 : 'bg-transparent hover:bg-[#F1F1F1] hover:bg-opacity-10 '}`}>
-                            <Link to='/' className="bg-transparent flex max-1nm:flex-col items-center 1nm:gap-[25px]">
+                            <Link to='/' className="bg-transparent max-1nm:gap-[10px] flex max-1nm:flex-col items-center 1nm:gap-[25px]">
                                 <AiFillHome className="text-[24px]"/>
                                 <p className="capitalize max-1nm:text-[10px] text-[14px]">beranda</p>
                             </Link>
@@ -41,7 +41,7 @@ const Sidebar = ({openToggle}) => {
                             className={`1nm:px-[15px] py-[10px] rounded-xl overflow-hidden w-full  ${currentPath === '/shorts'
                                 ? 'xl:bg-[#F1F1F1] xl:bg-opacity-10'
                                 : 'bg-transparent hover:bg-[#F1F1F1] hover:bg-opacity-10 '}`}>
-                            <Link to='/shorts' className="bg-transparent flex max-1nm:flex-col items-center 1nm:gap-[25px]">
+                            <Link to='/shorts' className="bg-transparent max-1nm:gap-[10px] flex max-1nm:flex-col items-center 1nm:gap-[25px]">
                                 <MdOutlineSlowMotionVideo className="text-[24px]"/>
                                 <p className="capitalize max-1nm:text-[10px] text-[14px]">shorts</p>
                             </Link>
@@ -50,22 +50,32 @@ const Sidebar = ({openToggle}) => {
                             className={`1nm:px-[15px] py-[10px] rounded-xl overflow-hidden w-full  ${currentPath === '/feed/subscriptions'
                                 ? 'xl:bg-[#F1F1F1] xl:bg-opacity-10'
                                 : 'bg-transparent hover:bg-[#F1F1F1] hover:bg-opacity-10 '}`}>
-                            <Link to='/feed/subscriptions' className="bg-transparent flex max-1nm:flex-col items-center 1nm:gap-[25px]">
+                            <Link to='/feed/subscriptions' className="bg-transparent max-1nm:gap-[10px] flex max-1nm:flex-col items-center 1nm:gap-[25px]">
                                 <MdOutlineSubscriptions className="text-[24px]"/>
                                 <p className="capitalize max-1nm:text-[10px] text-[14px]">subscription</p>
                             </Link>
                         </div>
                     </div>
                     <div
-                        className="flex flex-col gap-[5px] border-b border-white border-opacity-20  py-3">
-                        <div
+                        className="flex flex-col gap-[5px] 1nm:border-b 1nm:border-white border-opacity-20  py-3">
+                        {/* <div
                             className={`px-[15px] py-[10px] rounded-xl overflow-hidden w-full   ${currentPath === '/feed/you'
                                 ? 'xl:bg-[#F1F1F1] xl:bg-opacity-10'
                                 : 'bg-transparent hover:bg-[#F1F1F1] hover:bg-opacity-10 '}`}>
                             <Link to='/feed/you' className="bg-transparent flex items-center gap-[25px]">
-                            <MdOndemandVideo className="text-[24px] 1nm:hidden"/>
+                            <MdOndemandVideo className="text-[24px]"/>
                                 <p className="capitalize flex gap-2 items-center text-[16px]">Anda
                                     <MdKeyboardArrowRight/></p>
+                            </Link>
+                        </div> */}
+                        <div
+                            className={`px-[15px] py-[10px] rounded-xl max-3nm:hidden overflow-hidden w-full   ${currentPath === '/hdbhwb'
+                                ? 'xl:bg-[#F1F1F1] xl:bg-opacity-10'
+                                : 'bg-transparent hover:bg-[#F1F1F1] hover:bg-opacity-10 '}`}>
+                                <Link to='/feed/subscriptions' className="bg-transparent max-1nm:gap-[10px] flex max-1nm:flex-col items-center 1nm:gap-[25px]">
+                                <MdOndemandVideo className="text-[24px] 1nm:hidden"/>
+                                <p className="capitalize flex gap-2 items-center 1nm:text-[16px] max-1nm:text-[10px]">Anda
+                                    <MdKeyboardArrowRight className="max-1nm:hidden"/></p>
                             </Link>
                         </div>
                         <div
@@ -105,16 +115,16 @@ const Sidebar = ({openToggle}) => {
                             </Link>
                         </div>
                         <div
-                            className={`px-[15px] py-[10px] rounded-xl overflow-hidden w-full  ${currentPath === '/download'
+                            className={`px-[15px] py-[10px] rounded-xl max-3nm:hidden overflow-hidden w-full  ${currentPath === '/download'
                                 ? 'xl:bg-[#F1F1F1] xl:bg-opacity-10'
                                 : 'bg-transparent hover:bg-[#F1F1F1] hover:bg-opacity-10 '}`}>
-                            <Link className="bg-transparent flex items-center gap-[25px]">
+                                <Link to='/shorts' className="bg-transparent max-1nm:gap-[10px] flex max-1nm:flex-col items-center 1nm:gap-[25px]">
                                 <BsDownload className="text-[24px]"/>
-                                <p className="capitalize text-[14px] max-1nm:text-[10px]">hasil download</p>
+                                <p className="capitalize text-[14px] max-1nm:text-[10px] max-1nm:text-center">hasil download</p>
                             </Link>
                         </div>
                         <div
-                            className={`px-[15px] py-[10px] rounded-xl overflow-hidden w-full  ${currentPath === '/lebihbanyak'
+                            className={`px-[15px] py-[10px] rounded-xl overflow-hidden w-full max-1nm:hidden  ${currentPath === '/lebihbanyak'
                                 ? 'xl:bg-[#F1F1F1] xl:bg-opacity-10'
                                 : 'bg-transparent hover:bg-[#F1F1F1] hover:bg-opacity-10 '}`}>
                             <button className="bg-transparent flex items-center gap-[25px]">
