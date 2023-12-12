@@ -18,8 +18,7 @@ Welcome to YouTube Clone, an ambitious project aiming to replicate the YouTube e
 ## 🛠️ Technology Stack
 
 - **Frontend**: [Main Technologies Used, e.g., React, Redux]
-- **Backend**: [Main Technologies Used, e.g., Node.js, Express]
-- **Database**: [Database Used, e.g., MongoDB]
+- **Styling**: [Tailwind, Css]
 - **Development Tools**: [Development Tools, e.g., Visual Studio Code]
 
 ## 🛠️ Installation and Setup
