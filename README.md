@@ -41,10 +41,8 @@ Welcome to YouTube Clone, an ambitious project aiming to replicate the YouTube e
 
    ```bash
    export const ApiKey = "YOUR_API_KEY_HERE";
-    export const ApiKey1 = "YOUR_API_KEY_HERE";
-
-
-
+   export const ApiKey1 = "YOUR_API_KEY_HERE";
+   
 ## 🚀 Running the Application
 
 1. Run project:
