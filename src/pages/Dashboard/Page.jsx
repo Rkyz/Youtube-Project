@@ -57,7 +57,7 @@ const Page = () => {
               <AiOutlineClose className="text-2xl"/>
             </button>
           </div>
-          <ShortOne/>
+          <ShortOne openToggle={openToggle}/>
           <OneCard openToggle={openToggle} />
           <div className={` max-3nm:mx-[30px] 1nm:pr-[10px] max-1nm:ml-[100px] max-1nm:pr-[40px] max-3nm:pr-0 my-5 flex bg-transparent justify-between items-center ${openToggle ? 'ml-[100px] ':'ml-[260px]'}`}>
             <div className="flex items-center gap-2">

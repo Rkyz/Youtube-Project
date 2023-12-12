@@ -7,6 +7,7 @@ import Subscription from "../pages/Feed/Subscription/Page";
 import You from "../pages/Feed/You/Page";
 import Channel from "../pages/Feed/Channel/Page";
 import Page from "../pages/Watch/Page";
+import Notfound from "../pages/Notfound/Notfound";
 const router = createBrowserRouter([
   
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/watch",
     element: <Page />,
+  },
+  {
+    path: "*",
+    element: <Notfound />,
   },
 ]);
 

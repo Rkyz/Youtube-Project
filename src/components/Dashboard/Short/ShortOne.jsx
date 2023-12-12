@@ -1,8 +1,9 @@
-const ShortOne = () => {
+// eslint-disable-next-line react/prop-types
+const ShortOne = ({openToggle}) => {
 
     return (
         <div
-            className='w-full max-1nm:pl-[100px] max-3nm:px-[30px] max-4nm:hidden  1nm:pl-[260px] bg-transparent py-5 h-full 1nm:pr-[10px] max-1nm:pr-[40px] flex flex-col gap-10  '>
+            className={`w-full  max-3nm:px-[30px] max-4nm:hidden  1nm:pl-[260px] bg-transparent py-5 h-full 1nm:pr-[10px] max-1nm:pr-[40px] flex flex-col gap-10 ${openToggle ? 'max-1nm:pl-[100px] 1nm:pl-[100px]':'pl-[100px]'}  `}>
             <div className='bg-Black w-full overflow-x-auto  '>
                 <div className='grid grid-cols-5 gap-2 h-full '>
                     <div className='w-full bg-transparent flex flex-col gap-1'>
