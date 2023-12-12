@@ -1,7 +1,7 @@
 # YouTube Clone
 
 <p align="center">
-  <img src="link-to-your-logo.png" alt="YouTube Clone Logo">
+  <img src="https://yt3.ggpht.com/RXCiPfH_LYi15tgWbLNkEoJz3eQwouG6RDcg-df7Rirg3sFXP-gyW31SdwUdKTwZixUJQBMg=s88-c-k-c0x00ffffff-no-rj" alt="YouTube Clone Logo">
 </p>
 
 ## 🚀 Description
@@ -36,12 +36,21 @@ Welcome to YouTube Clone, an ambitious project aiming to replicate the YouTube e
 
    ```bash
    npm install
+3. Obtain an API Key from Google Cloud Console.
+3. Open the src/utils/Api.jsx file and replace the values of ApiKey and ApiKey1 with the API Key you obtained:
+
+   ```bash
+   export const ApiKey = "YOUR_API_KEY_HERE";
+    export const ApiKey1 = "YOUR_API_KEY_HERE";
+
+
 
 ## 🚀 Running the Application
 
-   idk
+1. Run project:
 
-
+   ```bash
+   npm run dev
 
 ## 🤝 Contribution
 
