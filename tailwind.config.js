@@ -18,6 +18,7 @@ export default {
         '2nm': '1097px',
         '3nm': '793px',
         '4nm': '700px',
+        '5nm': '940px',
       },
     },
   },

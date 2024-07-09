@@ -52,7 +52,7 @@ const LastCard = ({ openToggle }) => {
           chart: 'MostPopular',
           type: 'video',
           part: 'snippet, statistics',
-          maxResults: 3,
+          maxResults: 6,
         },
       });
       setVideos(response.data.items);

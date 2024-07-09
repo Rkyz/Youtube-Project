@@ -224,13 +224,13 @@ const Watch = () => {
 
     return (
         <div className='bg-transparent px-[20px]'>
-            <div className='bg-transparent w-full h-full flex gap-3 overflow-hidden'>
+            <div className='bg-transparent w-full h-full grid-cols-2 grid max-lg:grid-cols-1 gap-3 overflow-hidden'>
                 <div
-                    className='bg-transparent min-w-[700px] max-w-[1090px] w-full flex flex-col'>
+                    className='bg-transparent w-full flex flex-col col-span-1 row-span-1'>
                     <div className='w-full  '>
-                        <div className='w-full rounded-2xl overflow-hidden max-h-[570px] h-[570px]'>
+                        <div className='w-full rounded-2xl overflow-hidden h-full '>
                             <iframe
-                                className='w-full h-full'
+                                className='w-full max-3nm:h-[300px] 3nm:h-[570px]'
                                 src={`https://www.youtube.com/embed/${videoId}`}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -241,16 +241,16 @@ const Watch = () => {
                     <h1 className='mt-[20px] text-[20px] capitalize'>
                         {videoTitle}
                     </h1>
-                    <div className='w-full h-[55px] pt-[18px] flex bg-transparent items-end'>
+                    <div className='w-full h-auto pt-[18px] max-1nm:gap-[15px] max-1nm:flex-col flex bg-transparent items-end'>
                         <div
-                            className='w-full h-full flex gap-[10px] bg-transparent items-end justify-start'>
+                            className='w-full h-full flex gap-[10px] bg-transparent items-start justify-start'>
                             <div
                                 className='bg-transparent w-[40px] h-[40px] rounded-full overflow-hidden text-center'>
                                 <img src={channelThumbnail} alt=""/>
                             </div>
                             <div className='flex flex-col mr-[20px] bg-tranparent'>
-                                <div className='flex gap-[4px] items-center'>
-                                    <h1 className='capitalize'>{videoChannelName}</h1>
+                                <div className='flex gap-[4px] items-center capitalize'>
+                                    {videoChannelName}
                                     <div
                                         className='bg-[#AAAAAA] w-[14px] h-[14px] rounded-full flex items-center justify-center text-[10px] text-black'>
                                         <BsCheckLg/>
@@ -260,17 +260,17 @@ const Watch = () => {
                                     175 rb subscriber
                                 </h1>
                             </div>
-                            <div className='flex  gap-[10px] bg-transparent h-full'>
+                            <div className='flex  gap-[10px] h-auto justify-start bg-transparent'>
                                 <button
-                                    className='border px-[15px] h-full rounded-full hover:bg-[#3F3F3F] capitalize text-sm border-[#3F3F3F]'>gabung</button>
+                                    className='border px-[15px] py-[10px] h-full rounded-full hover:bg-[#3F3F3F] capitalize text-sm border-[#3F3F3F]'>gabung</button>
                                 <button
-                                    className='border px-[15px] h-full rounded-full capitalize text-sm bg-white text-black hover:opacity-90 border-[#3F3F3F]'>subscribe</button>
+                                    className='border px-[15px] py-[10px] h-full rounded-full capitalize text-sm bg-white text-black hover:opacity-90 border-[#3F3F3F]'>subscribe</button>
                             </div>
                         </div>
                         <div
-                            className='w-full h-full flex gap-[15px] bg-transparent items-end justify-end'>
+                            className='w-full h-full flex gap-[15px] bg-transparent items-start 1nm:justify-end'>
                             <div
-                                className='w-auto h-full flex rounded-full overflow-visible items-center justify-end bg-[#3F3F3F]'>
+                                className='w-auto h-auto flex rounded-full overflow-visible items-center justify-end bg-[#3F3F3F]'>
                                 <button
                                     onMouseEnter={onMouseLike}
                                     onMouseLeave={onMouseLike}
@@ -278,7 +278,7 @@ const Watch = () => {
                                     <span className='text-[20px]'>
                                         <AiOutlineLike/>
                                     </span>
-                                    <p className='text-[14px]'>{formattedLikeCount}</p>
+                                    <p className='text-[14px] whitespace-nowrap'>{formattedLikeCount}</p>
                                     {
                                         mouseLike && (
                                             <div
@@ -309,7 +309,7 @@ const Watch = () => {
                             <button
                                 onMouseEnter={onMouseShare}
                                 onMouseLeave={onMouseShare}
-                                className='hover:bg-gray-600 py-[9px] relative capitalize w-auto h-full flex items-center justify-center bg-[#3F3F3F] px-[10px] rounded-full gap-2'>
+                                className='hover:bg-gray-600 py-[9px] relative capitalize w-auto h-auto flex items-center justify-center bg-[#3F3F3F] px-[10px] rounded-full gap-2'>
                                 <span className='text-[20px]'>
 
                                     <PiShareFatLight/>
@@ -328,7 +328,7 @@ const Watch = () => {
                             <button
                                 onMouseEnter={onMouseDownload}
                                 onMouseLeave={onMouseDownload}
-                                className='hover:bg-gray-600 py-[9px] relative capitalize w-auto h-full flex items-center justify-center bg-[#3F3F3F] px-[10px] rounded-full gap-2'>
+                                className='hover:bg-gray-600 py-[9px] max-5nm:hidden relative capitalize w-auto h-auto flex items-center justify-center bg-[#3F3F3F] px-[10px] rounded-full gap-2'>
                                 <span className='text-[20px]'>
                                     <LiaDownloadSolid/>
                                 </span>
@@ -343,11 +343,13 @@ const Watch = () => {
                                 }
                             </button>
                             <button
-                                className='hover:bg-gray-600 py-[9px] w-auto h-full flex items-center justify-center bg-[#3F3F3F] px-[10px] rounded-full'>
+                                className='hover:bg-gray-600 py-[9px] w-auto h-auto flex items-center justify-center bg-[#3F3F3F] px-[10px] rounded-full'>
                                 <SlOptionsVertical/>
                             </button>
                         </div>
                     </div>
+                </div>
+                    <div className='row-span-2 col-span-2'>
                     <div className='w-full mt-[12px] bg-transparent '>
                         <Desciption
                             formattedViewCount={formattedViewCount}
@@ -358,8 +360,12 @@ const Watch = () => {
                     </div>
                     <div className='w-full mt-[12px] bg-transparent'>
                         <div className='w-full bg-transparent flex gap-[30px] mb-[20px]'>
-                            <p className='text-[20px]'>{length}
+                            <div className='flex gap-[5px]'>
+                            <p className='text-[20px] '> 
+                            {length}</p>
+                            <p className='text-[20px] '> 
                                 Komentar</p>
+                            </div>
                             <button className='capitalize flex gap-2 items-center '>
                                 <span className='text-[24px]'>
                                     <BsFilterLeft/>
@@ -369,8 +375,8 @@ const Watch = () => {
                         </div>
                         <Comment setLength={setLength}/>
                     </div>
-                </div>
-                <div className='max-w-[402px] w-[402px] bg-transparent h-full relative'>
+                    </div>
+                <div className='max-w-[402px] row-span-3 col-span-1 w-full bg-transparent h-full relative'>
                     <div className='w-full  '>
                         <button
                             className='w-[50px] shadow-[100px] max-h-[40px] bg-transparent h-full absolute -left-[1px] top-0  '>

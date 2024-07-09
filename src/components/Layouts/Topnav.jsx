@@ -2,7 +2,6 @@ import {RxHamburgerMenu} from 'react-icons/rx'
 import {BsFillMicFill, BsCameraVideo, BsBell} from 'react-icons/bs'
 import {BiPlay} from 'react-icons/bi'
 import {AiOutlineSearch} from 'react-icons/ai'
-import Youtube from '../../assets/img/YoutubeFont.png'
 import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line react/prop-types
