@@ -72,7 +72,7 @@ const Watch = () => {
         fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => {
-                setVideoData(data.items[0]);
+                setVideoData(data?.items[0]);
             })
             .catch((error) => {
                 console.error('Error fetching video data:', error);
@@ -83,7 +83,7 @@ const Watch = () => {
         fetch(apiUrl1)
         .then((response) => response.json())
         .then((data) => {
-          if (data.items.length > 0) {
+          if (data?.items?.length > 0) {
             // Access the playlist details
             const playlistDetails = data.items[0].snippet;
             const playlistTitle = playlistDetails.title;
@@ -111,7 +111,7 @@ const Watch = () => {
       fetch(apiUrl2)
         .then((response) => response.json())
         .then((data) => {
-          if (data.items.length > 0) {
+          if (data?.items?.length > 0) {
             const videos = data.items.map((item) => ({
               videoId: item.snippet.resourceId.videoId,
               videoTitle: item.snippet.title,
@@ -223,8 +223,9 @@ const Watch = () => {
     };
 
     return (
-        <div className='bg-transparent px-[20px]'>
-            <div className='bg-transparent w-full h-full grid-cols-2 grid max-lg:grid-cols-1 gap-3 overflow-hidden'>
+        <div className='bg-transparent md:px-[50px] '>
+            <div className='bg-transparent w-full h-full grid-cols-4 grid max-lg:grid-cols-1 gap-3 overflow-hidden'>
+                <div className='flex flex-col w-full bg-transparent col-span-3'>
                 <div
                     className='bg-transparent w-full flex flex-col col-span-1 row-span-1'>
                     <div className='w-full  '>
@@ -376,7 +377,8 @@ const Watch = () => {
                         <Comment setLength={setLength}/>
                     </div>
                     </div>
-                <div className='max-w-[402px] row-span-3 col-span-1 w-full bg-transparent h-full relative'>
+                </div>
+                <div className='md:w-[402px] bg-transparent h-full relative'>
                     <div className='w-full  '>
                         <button
                             className='w-[50px] shadow-[100px] max-h-[40px] bg-transparent h-full absolute -left-[1px] top-0  '>
